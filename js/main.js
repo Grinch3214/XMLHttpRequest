@@ -36,7 +36,6 @@ function request() {
 			function createElem(idElem) {
 				return document.createElement(idElem);
 			};
-
 			function querySelect(idElem) {
 				return document.querySelector(idElem);
 			};
@@ -59,38 +58,21 @@ function request() {
 					h2.innerText = `To-Do list for user №${users[i][i].userId}`;
 				};
 
-				for (let item of users[0]) {
-					inpt = createElem('input');
-					inpt.disabled = true;
-					inpt.type = 'text';
-					ul = createElem('ul');
-					li = createElem('li');
+				function createListForUser(index, user, count) {
+					for (let item of users[index]) {
+						inpt = createElem('input');
+						inpt.disabled = true;
+						inpt.type = 'text';
+						ul = createElem('ul');
+						li = createElem('li');
 
-					userOne.appendChild(ul).appendChild(li).appendChild(inpt);
-					inpt.value = `${++countOne}. ${item.title}`;
+						user.appendChild(ul).appendChild(li).appendChild(inpt);
+						inpt.value = `${++count}. ${item.title}`;
+					};
 				};
-
-				for (let item of users[1]) {
-					inpt = createElem('input');
-					inpt.disabled = true;
-					inpt.type = 'text';
-					ul = createElem('ul');
-					li = createElem('li');
-
-					userTwo.appendChild(ul).appendChild(li).appendChild(inpt);
-					inpt.value = `${++countTwo}. ${item.title}`;
-				};
-
-				for (let item of users[2]) {
-					inpt = createElem('input');
-					inpt.disabled = true;
-					inpt.type = 'text';
-					ul = createElem('ul');
-					li = createElem('li');
-
-					userThree.appendChild(ul).appendChild(li).appendChild(inpt);
-					inpt.value = `${++countThree}. ${item.title}`;
-				};
+				createListForUser(0, userOne, countOne);
+				createListForUser(1, userTwo, countTwo);
+				createListForUser(2, userThree, countThree);
 			};
 			createContent();
 		};
