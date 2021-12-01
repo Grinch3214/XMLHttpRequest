@@ -59,13 +59,13 @@ function request() {
 				};
 
 				function createListForUser(index, user, count) {
+					ul = createElem('ul');
 					for (let item of users[index]) {
 						inpt = createElem('input');
 						inpt.disabled = true;
 						inpt.type = 'text';
-						ul = createElem('ul');
 						li = createElem('li');
-
+						console.log(user)
 						user.appendChild(ul).appendChild(li).appendChild(inpt);
 						inpt.value = `${++count}. ${item.title}`;
 					};
