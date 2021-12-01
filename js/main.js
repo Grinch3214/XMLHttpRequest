@@ -65,7 +65,7 @@ function request() {
 						inpt.disabled = true;
 						inpt.type = 'text';
 						li = createElem('li');
-						console.log(user)
+
 						user.appendChild(ul).appendChild(li).appendChild(inpt);
 						inpt.value = `${++count}. ${item.title}`;
 					};
